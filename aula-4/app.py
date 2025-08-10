@@ -17,5 +17,17 @@ df = pd.read_csv("https://raw.githubusercontent.com/guilhermeonrails/data-jobs/r
 st.sidebar.header("🔍 Filtros")
 
 #Filtro do ano
-anos_disponiveis = sorted(df["ano_trabalho"].unique())
+anos_disponiveis = sorted(df['work_year'].unique())
 anos_selecionados = st.sidebar.multiselect("Ano", anos_disponiveis,default=anos_disponiveis)
+
+# Filtro de Senioridade
+senioridades_disponiveis = sorted(df['experience_level'].unique())
+senioridades_selecionadas = st.sidebar.multiselect("Senioridade", senioridades_disponiveis, default=senioridades_disponiveis)
+
+# Filtro por Tipo de Contrato
+contratos_disponiveis = sorted(df['employment_type'].unique())
+contratos_selecionados = st.sidebar.multiselect("Tipo de Contrato", contratos_disponiveis, default=contratos_disponiveis)
+
+# Filtro por Tamanho da Empresa
+tamanhos_disponiveis = sorted(df['company_size'].unique())
+tamanhos_selecionados = st.sidebar.multiselect("Tamanho da Empresa", tamanhos_disponiveis, default=tamanhos_disponiveis)
