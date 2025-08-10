@@ -31,3 +31,12 @@ contratos_selecionados = st.sidebar.multiselect("Tipo de Contrato", contratos_di
 # Filtro por Tamanho da Empresa
 tamanhos_disponiveis = sorted(df['company_size'].unique())
 tamanhos_selecionados = st.sidebar.multiselect("Tamanho da Empresa", tamanhos_disponiveis, default=tamanhos_disponiveis)
+
+#Filtragem do Datarame
+#Dataframe principal é filtrado com base nas seleções feitas na barra lateral
+df_filtrado= df[
+    (df['work_year'].isin(anos_selecionados)) &
+    (df["experience_level"].isin(senioridades_disponiveis)) &
+    (df["employment_type"].isin(contratos_selecionados)) &
+    (df["company_size"].isin(tamanhos_selecionados))
+]
